@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- Firebase SDK Legacy (App & Database) -->
+  <!-- Firebase SDK Legacy -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -35,44 +35,50 @@
     </nav>
   </header>
 
-  <!-- TEKS BERJALAN (MARQUEE DATA-DRIVEN) -->
+  <!-- TEKS BERJALAN -->
   <div class="marquee-container">
     <div class="marquee-title">BREAKING NEWS</div>
     <div class="marquee-content" id="breakingNewsTxt">Memuat berita terbaru...</div>
   </div>
 
-  <!-- SLIDER UTAMA (HERO CAROUSEL) -->
+  <!-- SLIDER UTAMA -->
   <section class="slider-section" id="sliderSection">
-    <div class="slider-container" id="sliderContainer">
-      <!-- Diisi dinamis oleh script.js -->
-    </div>
+    <div class="slider-container" id="sliderContainer"></div>
     <button class="slider-btn prev" id="slidePrev">&#10094;</button>
     <button class="slider-btn next" id="slideNext">&#10095;</button>
   </section>
 
-  <!-- KONTEN UTAMA UTK USER -->
+  <!-- KONTEN UTAMA USER -->
   <main class="container" id="userView">
     <h2 class="section-title">Berita Terkini</h2>
-    <div class="news-grid" id="newsGrid">
-      <!-- Diisi dinamis oleh script.js -->
-    </div>
+    <div class="news-grid" id="newsGrid"></div>
   </main>
 
-  <!-- HALAMAN DASHBOARD ADMINISTRATOR (TERSEMBUNYI DI AWAL) -->
+  <!-- HALAMAN DASHBOARD ADMINISTRATOR -->
   <main class="container hidden" id="adminDashboard">
     <div class="admin-header">
       <h2>Panel Kendali Administrator</h2>
       <button class="btn btn-danger" id="btnLogoutAdmin"><i class="fas fa-sign-out-alt"></i> Keluar</button>
     </div>
 
-    <!-- Kontrol Reset Data & Background -->
+    <!-- Kontrol Reset Data, Background & Biometrik -->
     <div class="admin-tools">
-      <h3>Pengaturan Global</h3>
+      <h3>Pengaturan Global & Keamanan</h3>
+      
+      <!-- FITUR BARU: REGISTRASI BIOMETRIK -->
+      <div style="background: rgba(26, 35, 126, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #1a237e;">
+        <h4 style="margin-bottom: 5px;"><i class="fas fa-fingerprint"></i> Pengaturan Verifikasi Biometrik</h4>
+        <p style="font-size: 0.85rem; margin-bottom: 10px; color: #555;">Daftarkan sidik jari perangkat ini agar bisa masuk ke panel admin secara instan tanpa ketik password lagi.</p>
+        <button class="btn btn-primary" id="btnRegisterBiometric"><i class="fas fa-user-plus"></i> Daftarkan Sidik Jari Perangkat Ini</button>
+        <button class="btn btn-danger btn-small hidden" id="btnDeleteBiometric"><i class="fas fa-trash-alt"></i> Hapus Data Biometrik</button>
+      </div>
+
       <div class="reset-group">
         <button class="btn btn-warning" id="btnResetHarian"><i class="fas fa-sync"></i> Reset Harian</button>
         <button class="btn btn-warning" id="btnResetMingguan"><i class="fas fa-calendar-week"></i> Reset Mingguan</button>
         <button class="btn btn-warning" id="btnResetBulanan"><i class="fas fa-calendar-alt"></i> Reset Bulanan</button>
       </div>
+      
       <div class="bg-control">
         <label for="bgUrlInput"><b>URL Gambar Latar Global:</b></label>
         <div class="input-inline">
@@ -87,33 +93,28 @@
       <h3 id="formTitle">Tambah Berita Baru</h3>
       <form id="newsForm">
         <input type="hidden" id="editKey">
-        
         <div class="form-group">
           <label for="newsTitle">Judul Berita</label>
           <input type="text" id="newsTitle" required placeholder="Masukkan judul berita utama">
         </div>
-
         <div class="form-group">
           <label for="newsImgUrl">URL Gambar Berita</label>
-          <input type="url" id="newsImgUrl" required placeholder="https://images.unsplash.com/... (Gunakan tautan gambar)">
+          <input type="url" id="newsImgUrl" required placeholder="https://images.unsplash.com/...">
         </div>
-
         <div class="form-group">
           <label for="newsTag">Tag Kategori</label>
-          <input type="text" id="newsTag" placeholder="Contoh: Nasional, Hukum, Politik, Kriminal">
+          <input type="text" id="newsTag" placeholder="Contoh: Nasional, Hukum, Politik">
         </div>
-
         <div class="form-group">
           <label for="newsContent">Isi Berita</label>
-          <textarea id="newsContent" rows="8" required placeholder="Ketik isi berita secara lengkap di sini tanpa batasan karakter..."></textarea>
+          <textarea id="newsContent" rows="8" required placeholder="Ketik isi berita tanpa batasan karakter..."></textarea>
         </div>
-
         <button type="submit" class="btn btn-success" id="btnSubmitForm">Siarkan Berita</button>
         <button type="button" class="btn btn-secondary hidden" id="btnCancelEdit">Batal Edit</button>
       </form>
     </div>
 
-    <!-- Tabel Monitoring & Manajemen Berita -->
+    <!-- Tabel Monitoring Berita -->
     <div class="admin-table-container">
       <h3>Daftar Siaran Berita Aktif</h3>
       <table class="admin-table">
@@ -125,9 +126,7 @@
             <th>Aksi</th>
           </tr>
         </thead>
-        <tbody id="adminNewsTableBody">
-          <!-- Diisi dinamis oleh script.js -->
-        </tbody>
+        <tbody id="adminNewsTableBody"></tbody>
       </table>
     </div>
   </main>
@@ -135,11 +134,11 @@
   <!-- FOOTER GLOBAL -->
   <footer>
     <div class="social-logos">
-      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://github.com" target="_blank" rel="noopener" aria-label="Github"><i class="fab fa-github"></i></a>
-      <a href="https://discord.com" target="_blank" rel="noopener" aria-label="Discord"><i class="fab fa-discord"></i></a>
-      <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      <a href="https://discord.com" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
     </div>
     <div class="copyright">
       &copy; 2026 MEDIA INDONESIA - ALL RIGHT RESERVED
@@ -149,4 +148,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

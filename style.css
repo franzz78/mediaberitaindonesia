@@ -453,3 +453,221 @@ footer {
   .reset-group { width: 100%; }
   .reset-group .btn { flex: 1; text-align: center; justify-content: center; }
   }
+
+/* ==========================================================================
+   TAMBAHAN MODERN & PREMIUM UI ENHANCEMENT (TEMPEL DI PALING BAWAH)
+   ========================================================================== */
+
+/* Efek Halus & Responsif Global */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Modifikasi Header & Navbar */
+header {
+  background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+  border-bottom: 3px solid var(--accent-color);
+  backdrop-filter: blur(10px);
+}
+
+.logo-area h1 {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Efek Hover Keren untuk Tombol Hamburger */
+.hamburger {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.hamburger:hover {
+  transform: rotate(90deg);
+  color: var(--accent-color);
+}
+
+/* Penyesuaian Teks Berjalan (Marquee) ala Breaking News TV */
+.marquee-container {
+  background: linear-gradient(90deg, #d32f2f 0%, #b71c1c 100%);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.marquee-title {
+  background-color: #111;
+  color: var(--accent-color);
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.marquee-title::after {
+  content: '';
+  position: absolute;
+  right: -15px;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 35px solid #111;
+  border-right: 15px solid transparent;
+}
+
+.marquee-content {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Peningkatan Tampilan Slider (Hero Carousel) */
+.slider-section {
+  border: 4px solid var(--white);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateZ(0);
+}
+
+.slide-caption {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+}
+
+.slide-caption h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  margin-bottom: 8px;
+}
+
+/* Modern Glassmorphism untuk Kartu Berita (News Card) */
+.news-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(8px) (-webkit-backdrop-filter: blur(8px));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.news-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(26, 35, 126, 0.2);
+}
+
+.news-img-box {
+  border-radius: 12px 12px 0 0;
+}
+
+.news-img-box img {
+  transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-img-box img {
+  transform: scale(1.08);
+}
+
+.news-tag {
+  background: linear-gradient(135deg, #ffb300 0%, #ff8f00 100%);
+  color: #000;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.news-body h3 {
+  color: #1a237e;
+  font-weight: 700;
+}
+
+/* Pembaruan Tampilan Panel Dashboard Admin */
+.admin-tools, .admin-form-card, .admin-table-container {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+
+/* Form Styling yang Lebih Fokus */
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* Peningkatan Desain Tombol (Buttons) */
+.btn {
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Tombol Aksi di Tabel Admin */
+.action-btns .btn-small {
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* Tabel Admin Modern */
+.admin-table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+}
+
+.admin-table th {
+  background-color: #1a237e;
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  padding: 15px;
+}
+
+.admin-table td {
+  padding: 15px;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.admin-table tr:hover td {
+  background-color: rgba(26, 35, 126, 0.03);
+}
+
+/* Footer Media Sosial Interaktif */
+footer {
+  background: #0f111a;
+  border-top: 4px solid var(--primary-color);
+}
+
+.social-logos a {
+  background: rgba(255,255,255,0.05);
+  width: 45px;
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-logos a:hover {
+  background: var(--primary-color);
+  color: var(--accent-color);
+  transform: translateY(-5px) rotate(360deg);
+}
+
+.copyright {
+  margin-top: 20px;
+  color: #666;
+  font-size: 0.8rem;
+}

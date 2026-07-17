@@ -1,0 +1,22 @@
+{
+  "short_name": "MediaIndo",
+  "name": "Media Berita Nasional Indonesia Digital",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=192",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=512",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#1a237e",
+  "theme-color": "#1a237e",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+
